@@ -1,0 +1,94 @@
+﻿@model List<Instructor>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+<h3>Instructors</h3>
+<a href="/Instructor/New" class="btn btn-outline-primary my-3">
+    Add New Instructors
+</a>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="~/Images/@item.Imag" />
+                        </div>
+                        <div class="details">
+                            <h5 class="id">ID: @item.Id</h5>
+                            <h6 class="name">Name: @item.Name</h6>
+                            <div>Address: @item.address</div>
+                            <div>Salary: @item.salary</div>
+                            <div>
+                                <a href="/Instructor/Detail/@item.Id" class="btn btn-primary">Show More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .card {
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        background: linear-gradient(to bottom right, #FFF7F1, #FFE4C9);
+        width: 50%; /* Adjust width as needed */
+        max-width: 400px; /* Adjust max-width as needed */
+        padding: 20px;
+        margin: 20px auto; /* Center the card horizontally */
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+    .image-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .details {
+        text-align: center;
+    }
+
+    .id {
+        font-weight: bold;
+    }
+
+    .btn {
+        border-radius: 20px;
+        padding: 8px 20px;
+        border: 1px solid #FFBE98;
+        background-color: transparent;
+        color: #9B4444;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            background-color: #FFBE98;
+            border: 1px solid #FFBE98;
+        }
+
+</style>
+
+

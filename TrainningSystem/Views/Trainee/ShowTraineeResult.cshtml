@@ -1,0 +1,78 @@
+﻿@model ShowTraineeResultViewModel
+@{
+    ViewData["Title"] = "ShowTraineeResult";
+}
+
+<h1>ShowTraineeResult</h1>
+
+<style>
+    .trainee-info, .enrolled-courses {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+        .trainee-info h1, .enrolled-courses h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .trainee-info h3, .enrolled-courses h3 {
+            color: #666666;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .enrolled-courses table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .enrolled-courses th, .enrolled-courses td {
+            padding: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .enrolled-courses th {
+            background-color: #f2f2f2;
+            color: #333333;
+        }
+
+        .enrolled-courses tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+</style>
+<div class="trainee-info">
+    <h1>Trainee Information</h1>
+    <div>
+        <h3>Trainee ID: @Model.TraineeId</h3>
+        <h3>Trainee Name: @Model.TraineeName</h3>
+    </div>
+</div>
+
+<div class="enrolled-courses">
+    <h1>Courses</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Trainee Name</th>
+                <th>Course Name</th>
+                <th>Course Degree</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td style="color: @Model.color;"> @Model.TraineeName</td>
+                    <td style="color: @Model.color;">@course.CourseName</td>
+                    <td style="color: @Model.color;">@course.CourseDegree</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

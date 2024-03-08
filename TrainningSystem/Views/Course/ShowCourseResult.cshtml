@@ -1,0 +1,59 @@
+﻿@model TraineeNamesInCourseViewModel
+@{
+    ViewData["Title"] = "ShowCourseResult";
+}
+
+<h1>ShowCourseResult</h1>
+
+@* <table style="border-collapse: collapse; width: 100%;">
+    <tr style="border-bottom: 1px solid #dddddd;">
+        <th style="padding: 8px; text-align: left;">Trainee Name</th>
+        <th style="padding: 8px; text-align: left;">Grade</th>
+    </tr>
+    @foreach (var trainee in Model.TraineeNamesAndGrades)
+    {
+        <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #dddddd;">@trainee.Name</td>
+            <td style="padding: 8px; border-bottom: 1px solid #dddddd; color: @Model.Color;">@trainee.Grade</td>
+        </tr>
+    }
+</table> *@
+
+
+<style>
+
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .custom-table th, .custom-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .custom-table th {
+            background-color: #f2f2f2; /* Example background color for table headers */
+        }
+
+        .custom-table td {
+            /* Additional styles for table data cells */
+        }
+
+
+</style>
+
+<table class="custom-table">
+    <tr>
+        <th>Trainee Name</th>
+        <th>Grade</th>
+    </tr>
+    @foreach (var trainee in Model.TraineeNamesAndGrades)
+    {
+        <tr>
+            <td>@trainee.Name</td>
+            <td style="color:@Model.color">@trainee.Grade</td>
+        </tr>
+    }
+</table>

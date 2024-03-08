@@ -1,0 +1,44 @@
+﻿@model AddInstructorVM;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<form method="post" asp-controller="AddInstrctor" asp-action="NewInstructor">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Image">Image:</label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Salary">Salary:</label>
+        <input asp-for="Salary" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="DeptId">Department:</label>
+        <select asp-for="DeptId" asp-items="new SelectList(Model.Departments, nameof(Department.Id), nameof(Department.Name))" class="form-control">
+            <option value="">-- Select Department --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="CourseId">Course:</label>
+        <select asp-for="CourseId" asp-items="new SelectList(Model.Courses, nameof(Course.Id), nameof(Course.Name))" class="form-control">
+            <option value="">-- Select Course --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Instructor</button>
+    </div>
+</form>
